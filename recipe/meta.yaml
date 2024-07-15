@@ -22,21 +22,21 @@ requirements:
     - setuptools-scm >=6.2
     - wheel
   run:
-    - python
-    - numpy
-    - matplotlib-base
-    - scipy >=1.8.0,<1.14.0
-    - bilby >=1.4
-    - gwpy >=3.0.4
     - astropy >=5.2
     - gwdetchar
     - gwsumm
-    - pycondor
+    - bilby >=1.4
+    - gwpy >=3.0.4
+    - json5
     - lalsuite >=7.3
     - loguru
-    - json5
-    - seaborn
+    - matplotlib-base
+    - numpy
     - pycbc
+    - pycondor
+    - python
+    - scipy >=1.8.0,<1.14.0
+    - seaborn
 
 test:
   imports:
