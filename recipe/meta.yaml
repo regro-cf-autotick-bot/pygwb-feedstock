@@ -8,11 +8,14 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pygwb-{{ version }}.tar.gz
   sha256: 675da6be45411e39b0032913499de3189abcf2f3bc4e48ff3bd208f86d22fa1d
+  patches:
+    # remove lalsuite requirement, in conda we can specify python-lal
+    - lalsuite-requirements.patch
 
 build:
   skip: true  # [win or py>=312]
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -22,21 +25,21 @@ requirements:
     - setuptools-scm >=6.2
     - wheel
   run:
-    - python
-    - numpy
-    - matplotlib-base
-    - scipy >=1.8.0,<1.14.0
-    - bilby >=1.4
-    - gwpy >=3.0.4
     - astropy >=5.2
     - gwdetchar
     - gwsumm
-    - pycondor
-    - lalsuite >=7.3
-    - loguru
+    - bilby >=1.4
+    - gwpy >=3.0.4
     - json5
-    - seaborn
+    - loguru
+    - matplotlib-base
+    - numpy
     - pycbc
+    - pycondor
+    - python
+    - python-lal
+    - scipy >=1.8.0,<1.14.0
+    - seaborn
 
 test:
   imports:
